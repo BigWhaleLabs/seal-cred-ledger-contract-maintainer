@@ -3,6 +3,7 @@ import { poseidon } from 'circomlibjs'
 
 export default function getMerkleRoot(owners: string[]) {
   const tree = new IncrementalMerkleTree(poseidon, 20, BigInt(0), 2)
+
   for (const owner of owners) {
     tree.insert(BigInt(owner))
   }

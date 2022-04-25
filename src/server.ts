@@ -5,18 +5,15 @@ import { Contract } from 'ethers'
 import checkContractRoot from '@/helpers/checkContractRoot'
 import erc721abi from '@/helpers/erc721abi'
 import getLedger from '@/helpers/getLedger'
-import provider from '@/helpers/provider'
+import signer from '@/helpers/signer'
 import streetCredLedger from '@/helpers/streetCredLedger'
-
-// TODO: remove listeners when root is deleted
-// TODO: add listeners when roots are added
-// TODO: do we need to do batch updates? What if we have multiple tranfres events firing simultaneously?
 
 void (async () => {
   console.log('Starting the app...')
 
   console.log('Getting the ledger...')
   const ledger = await getLedger(streetCredLedger)
+
   console.log(`Got the ledger with ${Object.keys(ledger).length} entries`)
 
   console.log('Setting up sc listeners...')
@@ -41,9 +38,11 @@ void (async () => {
   console.log('Done checking the merkle roots')
 
   console.log('Setting up listeners for token contracts...')
+
   const tokenContracts = Object.keys(ledger)
+
   for (const tokenAddress of tokenContracts) {
-    const contract = new Contract(tokenAddress, erc721abi, provider)
+    const contract = new Contract(tokenAddress, erc721abi, signer)
     contract.on(contract.filters.Transfer(), async () => {
       console.log(
         `Transfer event on ${tokenAddress}, checking the contract roots...`
