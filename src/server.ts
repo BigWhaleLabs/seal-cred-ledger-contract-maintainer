@@ -23,6 +23,7 @@ void (async () => {
       ledger[tokenAddress] = merkleRoot
     }
   )
+
   streetCredLedger.on(
     streetCredLedger.filters.DeleteMerkleRoot(),
     (tokenAddress) => {
@@ -51,4 +52,7 @@ void (async () => {
       await checkContractRoot(tokenAddress, currentMerkleRoot)
     })
   }
+  setTimeout(() => {
+    console.log('Batch updates every 5 minutes')
+  }, 300000)
 })()
