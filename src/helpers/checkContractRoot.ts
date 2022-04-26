@@ -13,7 +13,7 @@ export default async function checkContractRoot(
   const expectedMerkleRoot = addZerosToHex(await getMerkleRoot(owners))
   if (currentMerkleRoot !== expectedMerkleRoot) {
     console.log(
-      `For contract: ${tokenAddress} \nmerkle root mismatch: got ${currentMerkleRoot}, expected ${expectedMerkleRoot}, fixing...`
+      `For contract: ${tokenAddress}, merkle root mismatch: got ${currentMerkleRoot}, expected ${expectedMerkleRoot}, fixing...`
     )
     try {
       await streetCredLedger.setRoot(tokenAddress, expectedMerkleRoot)

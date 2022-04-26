@@ -5,7 +5,7 @@ import { Contract } from 'ethers'
 import checkContractRoot from '@/helpers/checkContractRoot'
 import erc721abi from '@/helpers/erc721abi'
 import getLedger from '@/helpers/getLedger'
-import signer from '@/helpers/signer'
+import provider from '@/helpers/provider'
 import streetCredLedger from '@/helpers/streetCredLedger'
 
 void (async () => {
@@ -43,7 +43,7 @@ void (async () => {
   const tokenContracts = Object.keys(ledger)
 
   for (const tokenAddress of tokenContracts) {
-    const contract = new Contract(tokenAddress, erc721abi, signer)
+    const contract = new Contract(tokenAddress, erc721abi, provider)
     contract.on(contract.filters.Transfer(), async () => {
       console.log(
         `Transfer event on ${tokenAddress}, checking the contract roots...`
@@ -54,5 +54,5 @@ void (async () => {
   }
   setTimeout(() => {
     console.log('Batch updates every 5 minutes')
-  }, 300000)
+  }, 5 * 60 * 1000)
 })()
