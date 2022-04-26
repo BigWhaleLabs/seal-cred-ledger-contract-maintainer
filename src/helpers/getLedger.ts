@@ -5,6 +5,7 @@ export default async function getLedger(streetCredLedger: StreetCredLedger) {
   const eventsFilter = await streetCredLedger.filters.SetMerkleRoot()
   const events = await streetCredLedger.queryFilter(eventsFilter)
   const ledger = {} as Ledger
+
   for (const event of events) {
     ledger[event.args.tokenAddress] = event.args.merkleRoot
   }
