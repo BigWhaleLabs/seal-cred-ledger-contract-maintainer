@@ -7,7 +7,7 @@ export default async function getLedger(streetCredLedger: StreetCredLedger) {
   const ledger = {} as Ledger
 
   for (const event of events) {
-    ledger[event.args.tokenAddress] = event.args.merkleRoot
+    ledger[event.args.tokenAddress].merkleRoot = event.args.merkleRoot
   }
   return ledger
 }
