@@ -29,12 +29,10 @@ void (async () => {
           merkleRoot,
           contract,
         }
-        contract.on(contract.filters.Transfer(), () => {
-          console.log(
-            `Transfer event on ${tokenAddress}, adding token address to addressQueue`
-          )
-          addTokenAddress(tokenAddress)
-        })
+        console.log(
+          `Transfer event on ${tokenAddress}, adding token address to addressQueue`
+        )
+        addTokenAddress(tokenAddress)
       } else {
         ledger[tokenAddress].merkleRoot = merkleRoot
       }
