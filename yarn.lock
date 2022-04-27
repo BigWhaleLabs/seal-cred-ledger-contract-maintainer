@@ -561,6 +561,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@typegoose/typegoose@npm:^9.8.1":
+  version: 9.8.1
+  resolution: "@typegoose/typegoose@npm:9.8.1"
+  dependencies:
+    lodash: ^4.17.20
+    loglevel: ^1.8.0
+    reflect-metadata: ^0.1.13
+    semver: ^7.3.7
+    tslib: ^2.3.1
+  peerDependencies:
+    mongoose: ~6.3.0
+  checksum: 14beabf7d77a1d26bc20abdd9cfc1a5a3dc43e987c0c40c478ff809688dec303419bee8ce39a1ba995cd053b337a2ebc983234f24647a8bd2fa950f1308de0bb
+  languageName: node
+  linkType: hard
+
 "@types/bn.js@npm:^4.11.5":
   version: 4.11.6
   resolution: "@types/bn.js@npm:4.11.6"
@@ -3740,6 +3755,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash@npm:^4.17.20":
+  version: 4.17.21
+  resolution: "lodash@npm:4.17.21"
+  checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7
+  languageName: node
+  linkType: hard
+
+"loglevel@npm:^1.8.0":
+  version: 1.8.0
+  resolution: "loglevel@npm:1.8.0"
+  checksum: 41aeea17de24aba8dba68084a31fe9189648bce4f39c1277e021bb276c3c53a75b0d337395919cf271068ad40ecefabad0e4fdeb4a8f11908beee532b898f4a7
+  languageName: node
+  linkType: hard
+
 "lowercase-keys@npm:^1.0.0, lowercase-keys@npm:^1.0.1":
   version: 1.0.1
   resolution: "lowercase-keys@npm:1.0.1"
@@ -4800,6 +4829,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"reflect-metadata@npm:^0.1.13":
+  version: 0.1.13
+  resolution: "reflect-metadata@npm:0.1.13"
+  checksum: 798d379a7b6f6455501145419505c97dd11cbc23857a386add2b9ef15963ccf15a48d9d15507afe01d4cd74116df8a213247200bac00320bd7c11ddeaa5e8fb4
+  languageName: node
+  linkType: hard
+
 "regexpp@npm:^3.0.0, regexpp@npm:^3.2.0":
   version: 3.2.0
   resolution: "regexpp@npm:3.2.0"
@@ -5009,6 +5045,17 @@ __metadata:
   bin:
     semver: bin/semver.js
   checksum: 5eafe6102bea2a7439897c1856362e31cc348ccf96efd455c8b5bc2c61e6f7e7b8250dc26b8828c1d76a56f818a7ee907a36ae9fb37a599d3d24609207001d60
+  languageName: node
+  linkType: hard
+
+"semver@npm:^7.3.7":
+  version: 7.3.7
+  resolution: "semver@npm:7.3.7"
+  dependencies:
+    lru-cache: ^6.0.0
+  bin:
+    semver: bin/semver.js
+  checksum: 2fa3e877568cd6ce769c75c211beaed1f9fce80b28338cadd9d0b6c40f2e2862bafd62c19a6cff42f3d54292b7c623277bcab8816a2b5521cf15210d43e75232
   languageName: node
   linkType: hard
 
@@ -5262,6 +5309,7 @@ __metadata:
   resolution: "street-cred-ledger-contract-maintainer@workspace:."
   dependencies:
     "@big-whale-labs/street-cred-ledger-contract": ^0.0.5
+    "@typegoose/typegoose": ^9.8.1
     "@types/node": ^17.0.25
     "@typescript-eslint/eslint-plugin": ^5.20.0
     "@typescript-eslint/parser": ^5.20.0
@@ -5281,6 +5329,7 @@ __metadata:
     prettier: ^2.6.2
     source-map-support: ^0.5.21
     tsc-watch: ^5.0.3
+    typegoose: ^5.9.1
     typescript: ^4.6.3
   languageName: unknown
   linkType: soft
@@ -5532,6 +5581,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tslib@npm:^2.3.1":
+  version: 2.4.0
+  resolution: "tslib@npm:2.4.0"
+  checksum: 8c4aa6a3c5a754bf76aefc38026134180c053b7bd2f81338cb5e5ebf96fefa0f417bff221592bf801077f5bf990562f6264fecbc42cd3309b33872cb6fc3b113
+  languageName: node
+  linkType: hard
+
 "tsutils@npm:^3.21.0":
   version: 3.21.0
   resolution: "tsutils@npm:3.21.0"
@@ -5605,6 +5661,17 @@ __metadata:
   dependencies:
     is-typedarray: ^1.0.0
   checksum: 99c11aaa8f45189fcfba6b8a4825fd684a321caa9bd7a76a27cf0c7732c174d198b99f449c52c3818107430b5f41c0ccbbfb75cb2ee3ca4a9451710986d61a60
+  languageName: node
+  linkType: hard
+
+"typegoose@npm:^5.9.1":
+  version: 5.9.1
+  resolution: "typegoose@npm:5.9.1"
+  dependencies:
+    reflect-metadata: ^0.1.13
+  peerDependencies:
+    mongoose: ^5.6.7
+  checksum: e3ad3a19b07be3cadc4518c83ccc261a85d1162b11555760576dde102720c78b08749198313fea5fa1d4774dbd3470e94b7b42cf74e2e7fca8328ee1c389d95c
   languageName: node
   linkType: hard
 

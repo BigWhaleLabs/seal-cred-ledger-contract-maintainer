@@ -14,11 +14,13 @@
     "lint": "yarn pretty && eslint --max-warnings 0 --ext ts,tsx,json src"
   },
   "dependencies": {
+    "@typegoose/typegoose": "^9.8.1",
     "@zk-kit/incremental-merkle-tree": "^0.4.3",
     "circomlibjs": "^0.0.8",
     "dotenv": "^16.0.0",
     "envalid": "^7.3.1",
-    "ethers": "^5.6.4"
+    "ethers": "^5.6.4",
+    "typegoose": "^5.9.1"
   },
   "devDependencies": {
     "@big-whale-labs/street-cred-ledger-contract": "^0.0.5",

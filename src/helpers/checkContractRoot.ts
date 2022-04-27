@@ -8,7 +8,10 @@ export default async function checkContractRoot(
   currentMerkleRoot: string
 ) {
   const owners = await getOwners(tokenAddress)
-  if (owners.length === 0) return
+  if (owners.length === 0) {
+    console.log('No minted owners from this contract')
+    return
+  }
 
   const expectedMerkleRoot = utils.hexZeroPad(await getMerkleRoot(owners), 32)
   if (currentMerkleRoot !== expectedMerkleRoot) {
