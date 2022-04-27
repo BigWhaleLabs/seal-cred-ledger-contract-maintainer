@@ -5,8 +5,7 @@ import getOwners from '@/helpers/getOwners'
 
 export default async function checkContractRoot(
   tokenAddress: string,
-  currentMerkleRoot: BytesLike,
-  mismatchRoots: StreetCredLedger.RootStruct[]
+  currentMerkleRoot: BytesLike
 ) {
   const owners = await getOwners(tokenAddress)
   if (owners.length === 0) {
@@ -17,12 +16,12 @@ export default async function checkContractRoot(
   const expectedMerkleRoot = utils.hexZeroPad(getMerkleRoot(owners), 32)
   if (currentMerkleRoot !== expectedMerkleRoot) {
     console.log(
-      `For contract: ${tokenAddress}, merkle root mismatch: got ${currentMerkleRoot}, expected ${expectedMerkleRoot}, fixing...`
+      `For contract: ${tokenAddress}, merkle root mismatch: got ${currentMerkleRoot}, expected ${expectedMerkleRoot}`
     )
-    const mismatchRoot: StreetCredLedger.RootStruct = {
-      tokenAddress: tokenAddress,
+    const mismatchRootFix: StreetCredLedger.RootStruct = {
+      tokenAddress,
       merkleRoot: expectedMerkleRoot,
     }
-    mismatchRoots.push(mismatchRoot)
+    return mismatchRootFix
   }
 }
