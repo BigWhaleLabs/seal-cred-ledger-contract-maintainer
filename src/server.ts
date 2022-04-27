@@ -30,7 +30,7 @@ void (async () => {
           contract,
         }
         console.log(
-          `Transfer event on ${tokenAddress}, adding token address to addressQueue`
+          `Transfer event on ${tokenAddress} using setMerkleRoot, adding token address to addressQueue`
         )
         addTokenAddress(tokenAddress)
       } else {
