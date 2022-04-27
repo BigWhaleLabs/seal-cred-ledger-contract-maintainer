@@ -18,7 +18,7 @@ async function check() {
 }
 
 export function startCheckingTransferEvents() {
-  setInterval(check, 10 * 1000)
+  setInterval(check, 5 * 60 * 1000)
 }
 
 export function addTransferEvent(event: TransferEvent) {
