@@ -1,14 +1,11 @@
 import 'module-alias/register'
 import 'source-map-support/register'
 
-import { Contract } from 'ethers'
 import { ERC721__factory } from '@big-whale-labs/street-cred-ledger-contract'
 import {
-  addTransferEvent,
+  addTokenAddress,
   startCheckingTransferEvents,
-} from '@/helpers/transferQueue'
-import checkContractRoot from '@/helpers/checkContractRoot'
-import erc721abi from '@/helpers/erc721abi'
+} from '@/helpers/addressQueue'
 import getLedger from '@/helpers/getLedger'
 import ledger from '@/helpers/Ledger'
 import provider from '@/helpers/provider'
@@ -32,14 +29,11 @@ void (async () => {
           merkleRoot,
           contract,
         }
-        contract.on(contract.filters.Transfer(), async () => {
+        contract.on(contract.filters.Transfer(), () => {
           console.log(
-            `Transfer event on ${tokenAddress}, adding to transferQueue`
+            `Transfer event on ${tokenAddress}, adding token address to addressQueue`
           )
-          const eventsFilter = contract.filters.Transfer()
-          const events = await contract.queryFilter(eventsFilter)
-          const event = events[events.length - 1]
-          addTransferEvent(event)
+          addTokenAddress(tokenAddress)
         })
       } else {
         ledger[tokenAddress].merkleRoot = merkleRoot
@@ -62,16 +56,14 @@ void (async () => {
 
   for (const tokenAddress of tokenContracts) {
     const contract = ledger[tokenAddress].contract
-    contract.on(contract.filters.Transfer(), async () => {
-      console.log(`Transfer event on ${tokenAddress}, adding to transferQueue`)
-
-      const eventsFilter = contract.filters.Transfer()
-      const events = await contract.queryFilter(eventsFilter)
-      const event = events[events.length - 1]
-      addTransferEvent(event)
+    contract.on(contract.filters.Transfer(), () => {
+      console.log(
+        `Transfer event on ${tokenAddress}, adding token address to addressQueue`
+      )
+      addTokenAddress(tokenAddress)
     })
   }
 
-  console.log('Start checking the transfer queue...')
+  console.log('Start checking the address queue...')
   startCheckingTransferEvents()
 })()

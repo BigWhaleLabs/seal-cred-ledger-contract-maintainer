@@ -5,10 +5,10 @@ __metadata:
   version: 5
   cacheKey: 8
 
-"@big-whale-labs/street-cred-ledger-contract@npm:^0.0.5":
-  version: 0.0.5
-  resolution: "@big-whale-labs/street-cred-ledger-contract@npm:0.0.5"
-  checksum: cc8e5279d6b0f4e4b96613f3b842fb6a2d0c8c9ac98e163043bdf493d436165223a8bdfc08158b8c91a2bc21a0ce980b4630722e8b39555e6fde118e263d7276
+"@big-whale-labs/street-cred-ledger-contract@npm:^0.0.7":
+  version: 0.0.7
+  resolution: "@big-whale-labs/street-cred-ledger-contract@npm:0.0.7"
+  checksum: 16363726335c991d6f4e5fc2dba3c538793bee1c619f200dc6cee53db39253ad747644a848a25fd9496da4bea62cb012db821dc8401a0b290c7adceb4294f446
   languageName: node
   linkType: hard
 
@@ -5261,7 +5261,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "street-cred-ledger-contract-maintainer@workspace:."
   dependencies:
-    "@big-whale-labs/street-cred-ledger-contract": ^0.0.5
+    "@big-whale-labs/street-cred-ledger-contract": ^0.0.7
     "@types/node": ^17.0.25
     "@typescript-eslint/eslint-plugin": ^5.20.0
     "@typescript-eslint/parser": ^5.20.0
