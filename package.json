@@ -21,7 +21,7 @@
     "node-cron": "^3.0.0"
   },
   "devDependencies": {
-    "@big-whale-labs/seal-cred-ledger-contract": "^0.0.1",
+    "@big-whale-labs/seal-cred-ledger-contract": "^0.0.2",
     "@types/node": "^17.0.31",
     "@types/node-cron": "^3.0.1",
     "@typescript-eslint/eslint-plugin": "^5.23.0",
