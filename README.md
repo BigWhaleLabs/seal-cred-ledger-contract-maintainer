@@ -16,7 +16,7 @@ And you should be good to go! Feel free to fork and submit pull requests.
 | Name                         | Description                       |
 | ---------------------------- | --------------------------------- |
 | `ETH_NETWORK`                | Ethereum network                  |
-| `INFURA_PROJECT_ID`          | Infura project id                 |
+| `ETH_WS`                     | Ethereum node websocket URI       |
 | `CONTRACT_ADDRESS`           | Dosu invites contract address     |
 | `CONTRACT_OWNER_PRIVATE_KEY` | Private key of the contract owner |
 
