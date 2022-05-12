@@ -1,11 +1,12 @@
 import { Contract } from 'ethers'
 import erc721abi from '@/helpers/erc721abi'
 import provider from '@/helpers/provider'
+import queryBlockLimit from 'helpers/queryBlockLimit'
 
 export default async function getOwners(contractAddress: string) {
   const contract = new Contract(contractAddress, erc721abi, provider)
   const eventsFilter = await contract.filters.Transfer()
-  const events = await contract.queryFilter(eventsFilter)
+  const events = await contract.queryFilter(eventsFilter, queryBlockLimit)
   const ownerMap = new Map<string, string>()
   for (const event of events) {
     if (!event.args) {

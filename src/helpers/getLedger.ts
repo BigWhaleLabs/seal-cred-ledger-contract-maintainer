@@ -4,10 +4,11 @@ import {
 } from '@big-whale-labs/seal-cred-ledger-contract'
 import ledger from '@/helpers/Ledger'
 import provider from '@/helpers/provider'
+import queryBlockLimit from '@/helpers/queryBlockLimit'
 
 export default async function getLedger(sealCredLedger: SealCredLedger) {
   const eventsFilter = await sealCredLedger.filters.SetMerkleRoot()
-  const events = await sealCredLedger.queryFilter(eventsFilter)
+  const events = await sealCredLedger.queryFilter(eventsFilter, queryBlockLimit)
 
   for (const event of events) {
     ledger[event.args.tokenAddress] = {
