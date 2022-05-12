@@ -1,7 +1,7 @@
 import { Contract } from 'ethers'
 import erc721abi from '@/helpers/erc721abi'
 import provider from '@/helpers/provider'
-import queryBlockLimit from 'helpers/queryBlockLimit'
+import queryBlockLimit from '@/helpers/queryBlockLimit'
 
 export default async function getOwners(contractAddress: string) {
   const contract = new Contract(contractAddress, erc721abi, provider)
