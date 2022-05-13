@@ -42,6 +42,7 @@ let checking = false
 async function checkWithSemaphore() {
   if (checking) {
     console.log('Not checking events, already in progress')
+    return
   }
   checking = true
   try {
