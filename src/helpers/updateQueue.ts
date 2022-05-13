@@ -4,13 +4,16 @@ import checkContractRoot from '@/helpers/checkContractRoot'
 import ledger from '@/helpers/Ledger'
 import sealCredLedger from '@/helpers/sealCredLedger'
 
-const updateQueue = [] as string[]
+const updateQueue = {} as { [contractAddress: string]: Date }
 
 async function check() {
   console.log('Checking events...')
-  const tokenAddressesToCheck = Array.from(
-    new Set(updateQueue.splice(0, updateQueue.length))
-  )
+  // Get contracts that were added no earlier than hour ago
+  const tokenAddressesToCheck = Object.entries(updateQueue)
+    .filter(
+      ([, addedToQueue]) => Date.now() - addedToQueue.getTime() < 60 * 60 * 1000
+    )
+    .map(([contractAddress]) => contractAddress)
   if (!tokenAddressesToCheck.length) {
     console.log('No contract addresses to check')
     return
@@ -58,5 +61,5 @@ export function addAddressToUpdateQueue(tokenAddress: string) {
   console.log(
     `Transfer event on ${tokenAddress}, adding token address to updateQueue`
   )
-  updateQueue.push(tokenAddress)
+  updateQueue[tokenAddress] = new Date()
 }
