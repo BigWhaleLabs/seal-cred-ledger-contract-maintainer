@@ -11,7 +11,8 @@ async function check() {
   // Get contracts that were added no earlier than hour ago
   const tokenAddressesToCheck = Object.entries(updateQueue)
     .filter(
-      ([, addedToQueue]) => Date.now() - addedToQueue.getTime() < 60 * 60 * 1000
+      ([, addedToQueue]) =>
+        Date.now() - addedToQueue.getTime() < 4 * 60 * 60 * 1000 // 4 hours
     )
     .map(([contractAddress]) => contractAddress)
   if (!tokenAddressesToCheck.length) {
