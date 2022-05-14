@@ -12,7 +12,7 @@ async function check() {
   const tokenAddressesToCheck = Object.entries(updateQueue)
     .filter(
       ([, addedToQueue]) =>
-        Date.now() - addedToQueue.getTime() < 4 * 60 * 60 * 1000 // 4 hours
+        Date.now() - addedToQueue.getTime() < 1 * 60 * 60 * 1000 // 1 hour
     )
     .map(([contractAddress]) => contractAddress)
   if (!tokenAddressesToCheck.length) {
