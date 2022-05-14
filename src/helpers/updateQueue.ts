@@ -26,6 +26,7 @@ async function check() {
   ).filter((v) => !!v) as SealCredLedger.RootStruct[]
   if (!mismatchRoots.length) {
     console.log('No mismatched roots found')
+    return
   }
 
   console.log('Updating merkle roots:')
