@@ -3,12 +3,12 @@ import { SealCredLedger } from '@big-whale-labs/seal-cred-ledger-contract'
 import getMerkleRoot from '@/helpers/getMerkleRoot'
 import getOwners from '@/helpers/getOwners'
 
-export default async function checkContractRoot(
+export default function checkContractRoot(
   tokenAddress: string,
   currentMerkleRoot: BytesLike
 ) {
   console.log(`Checking merkle root for ${tokenAddress}`)
-  const owners = await getOwners(tokenAddress)
+  const owners = getOwners(tokenAddress)
   if (owners.length === 0) {
     console.log('No minted owners from this contract')
     return

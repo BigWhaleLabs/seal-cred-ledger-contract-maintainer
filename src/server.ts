@@ -5,8 +5,9 @@ import {
   addAddressToUpdateQueue,
   startCheckingUpdateQueue,
 } from '@/helpers/updateQueue'
+import fetchAllContractLedgers from '@/helpers/fetchAllContractLedgers'
 import getLedger from '@/helpers/getLedger'
-import ledger from '@/helpers/Ledger'
+import ledger from '@/helpers/ledger'
 import sealCredLedger from '@/helpers/sealCredLedger'
 import setupERC721Listener from '@/helpers/setupERC721Listener'
 import setupSealCredLedgerListeners from '@/helpers/setupSealCredLedgerListeners'
@@ -16,6 +17,8 @@ void (async () => {
   console.log('Getting the ledger...')
   await getLedger(sealCredLedger)
   console.log(`Got the ledger with ${Object.keys(ledger).length} entries`)
+  console.log('Populating the contracts...')
+  await fetchAllContractLedgers()
   console.log(
     'Setting up SetMerkleRoot and DeleteMerkleRoot listeners on SealCredLedger...'
   )

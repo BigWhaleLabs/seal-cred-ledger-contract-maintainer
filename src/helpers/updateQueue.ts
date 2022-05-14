@@ -1,25 +1,22 @@
 import { SealCredLedger } from '@big-whale-labs/seal-cred-ledger-contract'
 import { schedule } from 'node-cron'
 import checkContractRoot from '@/helpers/checkContractRoot'
-import ledger from '@/helpers/Ledger'
+import ledger from '@/helpers/ledger'
 import sealCredLedger from '@/helpers/sealCredLedger'
 
-const updateQueue = {} as { [contractAddress: string]: Date }
+const updateQueue = [] as string[]
 
 async function check() {
   console.log('Checking events...')
-  // Get contracts that were added no earlier than hour ago
-  const tokenAddressesToCheck = Object.entries(updateQueue)
-    .filter(
-      ([, addedToQueue]) =>
-        Date.now() - addedToQueue.getTime() < 1 * 60 * 60 * 1000 // 1 hour
-    )
-    .map(([contractAddress]) => contractAddress)
+  const tokenAddressesToCheck = Array.from(
+    new Set(updateQueue.splice(0, updateQueue.length))
+  )
   if (!tokenAddressesToCheck.length) {
     console.log('No contract addresses to check')
     return
   }
-  console.log(`Got ${tokenAddressesToCheck.length} contracts to check`)
+  console.log(ledger)
+  console.log(tokenAddressesToCheck)
   const mismatchRoots = (
     await Promise.all(
       tokenAddressesToCheck.map((address) =>
@@ -27,10 +24,8 @@ async function check() {
       )
     )
   ).filter((v) => !!v) as SealCredLedger.RootStruct[]
-
   if (!mismatchRoots.length) {
-    console.log('No mismatches found')
-    return
+    console.log('No mismatched roots found')
   }
 
   console.log('Updating merkle roots:')
@@ -48,15 +43,12 @@ let checking = false
 async function checkWithSemaphore() {
   if (checking) {
     console.log('Not checking events, already in progress')
-    return
   }
   checking = true
-  console.log('Turned on checking semaphore')
   try {
     await check()
   } finally {
     checking = false
-    console.log('Turned off checking semaphore')
   }
 }
 
@@ -71,5 +63,5 @@ export function addAddressToUpdateQueue(tokenAddress: string) {
   console.log(
     `Transfer event on ${tokenAddress}, adding token address to updateQueue`
   )
-  updateQueue[tokenAddress] = new Date()
+  updateQueue.push(tokenAddress)
 }

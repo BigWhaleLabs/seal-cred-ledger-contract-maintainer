@@ -1,5 +1,5 @@
 import { ERC721__factory } from '@big-whale-labs/seal-cred-ledger-contract'
-import ledger from '@/helpers/Ledger'
+import ledger from '@/helpers/ledger'
 import provider from '@/helpers/provider'
 import setupERC721Listener from '@/helpers/setupERC721Listener'
 import streetCredLedger from '@/helpers/sealCredLedger'

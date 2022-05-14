@@ -2,7 +2,7 @@ import {
   ERC721__factory,
   SealCredLedger,
 } from '@big-whale-labs/seal-cred-ledger-contract'
-import ledger from '@/helpers/Ledger'
+import ledger from '@/helpers/ledger'
 import provider from '@/helpers/provider'
 import queryBlockLimit from '@/helpers/queryBlockLimit'
 
