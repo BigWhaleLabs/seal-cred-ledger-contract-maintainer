@@ -7,6 +7,7 @@ export default async function checkContractRoot(
   tokenAddress: string,
   currentMerkleRoot: BytesLike
 ) {
+  console.log(`Checking merkle root for ${tokenAddress}`)
   const owners = await getOwners(tokenAddress)
   if (owners.length === 0) {
     console.log('No minted owners from this contract')
@@ -23,5 +24,9 @@ export default async function checkContractRoot(
       merkleRoot: expectedMerkleRoot,
     }
     return mismatchRootFix
+  } else {
+    console.log(
+      `For contract: ${tokenAddress}, merkle roots match: ${currentMerkleRoot}`
+    )
   }
 }
