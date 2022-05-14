@@ -15,8 +15,6 @@ async function check() {
     console.log('No contract addresses to check')
     return
   }
-  console.log(ledger)
-  console.log(tokenAddressesToCheck)
   const mismatchRoots = (
     await Promise.all(
       tokenAddressesToCheck.map((address) =>
