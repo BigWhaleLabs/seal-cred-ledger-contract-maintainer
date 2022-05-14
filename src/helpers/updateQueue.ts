@@ -45,10 +45,12 @@ async function checkWithSemaphore() {
     return
   }
   checking = true
+  console.log('Turned on checking semaphore')
   try {
     await check()
   } finally {
     checking = false
+    console.log('Turned off checking semaphore')
   }
 }
 
