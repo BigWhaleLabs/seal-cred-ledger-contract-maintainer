@@ -15,14 +15,14 @@
   "dependencies": {
     "@zk-kit/incremental-merkle-tree": "^0.4.3",
     "circomlibjs": "^0.0.8",
-    "dotenv": "^16.0.0",
+    "dotenv": "^16.0.1",
     "envalid": "^7.3.1",
-    "ethers": "^5.6.5",
+    "ethers": "^5.6.6",
     "node-cron": "^3.0.0"
   },
   "devDependencies": {
-    "@big-whale-labs/seal-cred-ledger-contract": "^0.0.2",
-    "@types/node": "^17.0.31",
+    "@big-whale-labs/seal-cred-ledger-contract": "^0.0.3",
+    "@types/node": "^17.0.33",
     "@types/node-cron": "^3.0.1",
     "@typescript-eslint/eslint-plugin": "^5.23.0",
     "@typescript-eslint/parser": "^5.23.0",
