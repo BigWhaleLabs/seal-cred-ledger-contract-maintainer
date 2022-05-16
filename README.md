@@ -16,7 +16,7 @@ And you should be good to go! Feel free to fork and submit pull requests.
 | Name                         | Description                       |
 | ---------------------------- | --------------------------------- |
 | `ETH_NETWORK`                | Ethereum network                  |
-| `ETH_WS`                     | Ethereum node websocket URI       |
+| `ETH_RPC`                    | Ethereum node RPC URI             |
 | `CONTRACT_ADDRESS`           | Dosu invites contract address     |
 | `CONTRACT_OWNER_PRIVATE_KEY` | Private key of the contract owner |
 
