@@ -13,6 +13,7 @@
     "lint": "yarn pretty && eslint --max-warnings 0 --ext ts,tsx,json src"
   },
   "dependencies": {
+    "@big-whale-labs/constants": "^0.0.4",
     "@zk-kit/incremental-merkle-tree": "^0.4.3",
     "circomlibjs": "^0.0.8",
     "dotenv": "^16.0.1",

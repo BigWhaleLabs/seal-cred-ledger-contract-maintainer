@@ -5,6 +5,13 @@ __metadata:
   version: 5
   cacheKey: 8
 
+"@big-whale-labs/constants@npm:^0.0.4":
+  version: 0.0.4
+  resolution: "@big-whale-labs/constants@npm:0.0.4"
+  checksum: 0e0399d173708dec8388492cecce3b6ce3b7bc62bf8ecae9a96d3ac1fcc2eb393fddd546a9569920dc6a259c60509640a40e2efaf02dcb794e724288b1472920
+  languageName: node
+  linkType: hard
+
 "@big-whale-labs/seal-cred-ledger-contract@npm:^0.0.3":
   version: 0.0.3
   resolution: "@big-whale-labs/seal-cred-ledger-contract@npm:0.0.3"
@@ -5087,6 +5094,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "seal-cred-ledger-contract-maintainer@workspace:."
   dependencies:
+    "@big-whale-labs/constants": ^0.0.4
     "@big-whale-labs/seal-cred-ledger-contract": ^0.0.3
     "@types/node": ^17.0.33
     "@types/node-cron": ^3.0.1
