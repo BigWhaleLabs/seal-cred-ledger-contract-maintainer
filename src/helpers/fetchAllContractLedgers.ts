@@ -1,11 +1,11 @@
+import { QUERY_BLOCK_LIMIT } from '@big-whale-labs/constants'
 import allContracts from '@/helpers/allContracts'
 import ledger from '@/helpers/ledger'
-import queryBlockLimit from '@/helpers/queryBlockLimit'
 
 export default async function () {
   for (const { contract } of Object.values(ledger)) {
     const eventsFilter = await contract.filters.Transfer()
-    const events = await contract.queryFilter(eventsFilter, queryBlockLimit)
+    const events = await contract.queryFilter(eventsFilter, QUERY_BLOCK_LIMIT)
     for (const event of events) {
       if (!event.args) {
         continue
