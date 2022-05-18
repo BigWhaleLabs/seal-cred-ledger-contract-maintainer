@@ -13,7 +13,7 @@
     "lint": "yarn pretty && eslint --max-warnings 0 --ext ts,tsx,json src"
   },
   "dependencies": {
-    "@big-whale-labs/constants": "^0.0.4",
+    "@big-whale-labs/constants": "^0.0.5",
     "@zk-kit/incremental-merkle-tree": "^0.4.3",
     "circomlibjs": "^0.0.8",
     "dotenv": "^16.0.1",
@@ -23,10 +23,10 @@
   },
   "devDependencies": {
     "@big-whale-labs/seal-cred-ledger-contract": "^0.0.3",
-    "@types/node": "^17.0.33",
+    "@types/node": "^17.0.34",
     "@types/node-cron": "^3.0.1",
-    "@typescript-eslint/eslint-plugin": "^5.23.0",
-    "@typescript-eslint/parser": "^5.23.0",
+    "@typescript-eslint/eslint-plugin": "^5.25.0",
+    "@typescript-eslint/parser": "^5.25.0",
     "eslint": "^8.15.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
