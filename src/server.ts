@@ -24,8 +24,8 @@ void (async () => {
   )
   setupSealCredLedgerListeners()
   console.log('Setting up listeners for token contracts...')
-  for (const { contract } of Object.values(ledger)) {
-    setupERC721Listener(contract)
+  for (const { originalContract } of Object.values(ledger)) {
+    setupERC721Listener(originalContract)
   }
   console.log('Adding all contracts for recheck...')
   for (const contract of Object.keys(ledger)) {

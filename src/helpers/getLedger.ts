@@ -1,22 +1,26 @@
-import {
-  ERC721__factory,
-  SealCredLedger,
-} from '@big-whale-labs/seal-cred-ledger-contract'
 import { QUERY_BLOCK_LIMIT } from '@big-whale-labs/constants'
+import { SealCredLedger } from '@big-whale-labs/seal-cred-ledger-contract'
+import getLedgerRecord from '@/helpers/getLedgerRecord'
 import ledger from '@/helpers/ledger'
-import provider from '@/helpers/provider'
 
 export default async function getLedger(sealCredLedger: SealCredLedger) {
-  const eventsFilter = await sealCredLedger.filters.SetMerkleRoot()
+  const eventsFilter = sealCredLedger.filters.SetMerkleRoot()
   const events = await sealCredLedger.queryFilter(
     eventsFilter,
     QUERY_BLOCK_LIMIT
   )
+  const addressToMerkle: { [address: string]: string } = {}
 
   for (const event of events) {
-    ledger[event.args.tokenAddress] = {
-      merkleRoot: event.args.merkleRoot,
-      contract: ERC721__factory.connect(event.args.tokenAddress, provider),
-    }
+    const { tokenAddress, merkleRoot } = event.args
+    addressToMerkle[tokenAddress] = merkleRoot
+  }
+
+  for (const tokenAddress in addressToMerkle) {
+    ledger[tokenAddress] = await getLedgerRecord(
+      sealCredLedger,
+      tokenAddress,
+      addressToMerkle[tokenAddress]
+    )
   }
 }

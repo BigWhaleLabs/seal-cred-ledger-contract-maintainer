@@ -12,7 +12,7 @@ export default function setupStreetCredLedgerListeners() {
         const contract = ERC721__factory.connect(tokenAddress, provider)
         ledger[tokenAddress] = {
           merkleRoot,
-          contract,
+          originalContract: contract,
         }
         setupERC721Listener(contract)
       } else {
@@ -23,7 +23,7 @@ export default function setupStreetCredLedgerListeners() {
   streetCredLedger.on(
     streetCredLedger.filters.DeleteMerkleRoot(),
     (tokenAddress) => {
-      ledger[tokenAddress].contract.removeAllListeners()
+      ledger[tokenAddress].originalContract.removeAllListeners()
       delete ledger[tokenAddress]
     }
   )

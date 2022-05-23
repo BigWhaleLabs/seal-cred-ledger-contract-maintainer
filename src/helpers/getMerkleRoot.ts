@@ -1,5 +1,5 @@
 import { IncrementalMerkleTree } from '@zk-kit/incremental-merkle-tree'
-import { poseidon } from 'circomlibjs'
+import { poseidon } from '@big-whale-labs/poseidon'
 
 export default function getMerkleRoot(owners: string[]) {
   const tree = new IncrementalMerkleTree(poseidon, 20, BigInt(0), 2)

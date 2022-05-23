@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "@big-whale-labs/constants": "^0.0.8",
+    "@big-whale-labs/poseidon": "^0.0.4",
     "@zk-kit/incremental-merkle-tree": "^0.4.3",
-    "circomlibjs": "^0.0.8",
     "dotenv": "^16.0.1",
     "envalid": "^7.3.1",
     "ethers": "^5.6.6",

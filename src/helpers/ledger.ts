@@ -1,4 +1,4 @@
-import Ledger from '@/types/Ledger'
+import Ledger from '@/models/Ledger'
 
 const ledger = {} as Ledger
 
