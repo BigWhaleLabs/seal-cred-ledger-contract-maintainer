@@ -1,30 +1,18 @@
 import { SealCredLedger } from '@big-whale-labs/seal-cred-ledger-contract'
-import getAllEvents from '@/helpers/getAllEvents'
+import { getAddressesToMerkleRoot } from '@big-whale-labs/frontend-utils'
 import getLedgerRecord from '@/helpers/getLedgerRecord'
 import ledger from '@/helpers/ledger'
 
 export default async function getLedger(sealCredLedger: SealCredLedger) {
-  const { events, deleteTopic } = await getAllEvents(sealCredLedger)
-  const addressToMerkle: { [address: string]: string } = {}
+  const addressToMerkleRoot = await getAddressesToMerkleRoot(sealCredLedger)
 
-  for (const event of events) {
-    const {
-      args: { tokenAddress, merkleRoot },
-      topic,
-    } = event
-    if (deleteTopic === topic) {
-      delete addressToMerkle[tokenAddress]
-      continue
-    }
+  console.log(addressToMerkleRoot)
 
-    addressToMerkle[tokenAddress] = merkleRoot
-  }
-
-  for (const tokenAddress in addressToMerkle) {
+  for (const tokenAddress in addressToMerkleRoot) {
     ledger[tokenAddress] = await getLedgerRecord(
       sealCredLedger,
       tokenAddress,
-      addressToMerkle[tokenAddress]
+      addressToMerkleRoot[tokenAddress]
     )
   }
 }

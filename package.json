@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@big-whale-labs/constants": "^0.0.8",
+    "@big-whale-labs/frontend-utils": "^0.0.2",
     "@big-whale-labs/poseidon": "^0.0.4",
     "@zk-kit/incremental-merkle-tree": "^0.4.3",
     "dotenv": "^16.0.1",
