@@ -6,9 +6,9 @@
   "repository": "https://github.com/BigWhaleLabs/seal-cred-ledger-contract-maintainer",
   "license": "MIT",
   "scripts": {
-    "distribute": "yarn build-ts && node dist/server.js",
-    "develop": "tsc-watch --skipLibCheck --onSuccess 'node dist/server.js'",
-    "build-ts": "tsc --skipLibCheck",
+    "distribute": "node dist/server.js",
+    "start": "tsc-watch --skipLibCheck --onSuccess 'node dist/server.js'",
+    "build": "tsc --skipLibCheck",
     "pretty": "prettier --check src",
     "lint": "yarn pretty && eslint --max-warnings 0 --ext ts,tsx,json src"
   },
